@@ -6,9 +6,7 @@ import MovieItem from './MovieItem';
 class Collection extends Component {
 
     carregaFotos() {
-        console.log('Collection listmovies');
-        // this.props.listMovies('http://netflixroulette.net/api/api.php?director=Alejandro%20Gonzalez%20inarritu');
-        this.props.listMovies('http://netflixroulette.net/api/api.php?title=Attack%20on%20titan');
+        this.props.listMovies('https://netflixroulette.net/api/api.php?director=Alejandro%20Gonzalez%20inarritu');
     }
 
     componentDidMount() {

@@ -1,17 +1,16 @@
 import {listMovies, detailMovie, errorMovie} from '../actions/actionCreator';
-import axios from 'axios';
 
 export default class NetFlixApi {
     static listMovies(url) {
         return dispatch => {
-            axios.get(url).then(response => {
+            fetch(url).then(response => {
                     if (response.ok) {
                         return response.json();
                     }
                 })
                 .catch(err => console.error(err))
                 .then(movies => {
-                    // dispatch(listMovies(movies));
+                    dispatch(listMovies(movies));
                     return movies;
                 });
         }
@@ -20,7 +19,7 @@ export default class NetFlixApi {
     static search(text, type) {
         return dispatch => {
 
-            fetch(`http://netflixroulette.net/api/api.php?${type}=${text}`).then(response => {
+            fetch(`https://netflixroulette.net/api/api.php?${type}=${text}`).then(response => {
                 if (response.ok) {
                     return response.json();
                 } else {
