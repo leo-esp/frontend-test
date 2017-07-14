@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #0d0d0d;
+    border: none;
+    border-bottom: solid #262626 thin;
+}
+
+.form-inline {
+    padding-top: 7px;
+
+    input, select, button{
+        background-color: #404040;
+        color: white;
+        border: solid #1a1a1a thin;
+    }
+
+}
