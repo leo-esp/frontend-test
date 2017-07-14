@@ -4,9 +4,5 @@ export function detail (state = {}, action) {
         return action.movie;
     }
 
-    if(action.type === 'ERROR') {
-        return action.errorMovie;
-    }
-
     return state;
 }

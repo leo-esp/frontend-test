@@ -8,7 +8,11 @@ export default class HeaderMovies extends Component {
     search(event){
         event.preventDefault();
         this.props.store.dispatch(NetFlixApi.search(this.texto.value, this.type.value));
-        browserHistory.push('/movieDetails');
+        if(this.type.value === 'title'){
+            browserHistory.push('/movieDetails');
+        }else{
+            browserHistory.push('/');
+        }
     }
 
     render() {
@@ -22,7 +26,7 @@ export default class HeaderMovies extends Component {
                                 <FormGroup controlId="formControlsSelect">
                                     <FormControl componentClass="select" placeholder="select" inputRef={input => this.type = input}>
                                         <option value="title">Título</option>
-                                        <option value="author">Autor</option>
+                                        <option value="actor">Ator</option>
                                         <option value="director">Diretor</option>
                                     </FormControl>
                                 </FormGroup>

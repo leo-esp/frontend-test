@@ -6,6 +6,6 @@ export function detailMovie(movie){
     return {type: 'DETAIL', movie};
 }
 
-export function errorMovie(msg){
+export function error(msg){
     return {type: 'ERROR', msg};
 }

@@ -1,4 +1,5 @@
-import {listMovies, detailMovie, errorMovie} from '../actions/actionCreator';
+import {listMovies, detailMovie, error} from '../actions/actionCreator';
+import { browserHistory } from 'react-router';
 
 export default class NetFlixApi {
     static listMovies(url) {
@@ -8,7 +9,6 @@ export default class NetFlixApi {
                         return response.json();
                     }
                 })
-                .catch(err => console.error(err))
                 .then(movies => {
                     dispatch(listMovies(movies));
                     return movies;
@@ -21,18 +21,20 @@ export default class NetFlixApi {
 
             fetch(`https://netflixroulette.net/api/api.php?${type}=${text}`).then(response => {
                 if (response.ok) {
-                    return response.json();
+                    response.json().then(result => {
+                        if(type === 'title'){
+                            dispatch(detailMovie(result));
+                            return result;
+                        }else{
+                            dispatch(listMovies(result));
+                            return result;
+                        }
+                    });
                 } else {
-                    dispatch(errorMovie(response.message));
-                    return response.message;
-                }
-            }).then(result => {
-                if(type === 'author' || type === 'director'){
-                    dispatch(listMovies(result));
-                    return result;
-                }else{
-                    dispatch(detailMovie(result));
-                    return result;
+                    response.json().then(result => {
+                        dispatch(error(result.message));
+                        browserHistory.push('/erros');
+                    });
                 }
             });
         }
