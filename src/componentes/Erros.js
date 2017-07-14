@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
 class Erros extends Component {
     render(){
         return (
-            <div>
-                <h1>Teste</h1>
+            <div className="error-message text-center">
+                <h1>{this.props.msg}</h1>
             </div>
         );
     }

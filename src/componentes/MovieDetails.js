@@ -5,7 +5,7 @@ class MovieDetails extends Component{
 
     render(){
         return (
-            <div className="row-fluid">
+            <div className="row-fluid movie-detail">
                 <div className="col-md-6 col-md-offset-3">
                     <div className="col-md-6">
                         <img src={this.props.movie.poster} className="img-responsive" alt={this.props.movie.show_title}/>

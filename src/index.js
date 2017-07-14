@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./css/reset.css";
-import "./css/collection.css";
+import "./css/App.css";
 import App from "./App";
 import { Router, Route, browserHistory, IndexRoute } from "react-router";
 import { createStore, applyMiddleware, combineReducers } from "redux";
@@ -10,7 +10,7 @@ import { collection } from "./reducers/movies";
 import { detail } from "./reducers/detail";
 import { error } from "./reducers/error";
 import { Provider } from "react-redux";
-import { Erros } from "./componentes/Erros";
+import Erros from "./componentes/Erros";
 import MovieDetails from './componentes/MovieDetails';
 import Collection from './componentes/Collection';
 
