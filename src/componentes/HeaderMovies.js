@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {FormGroup, Form, FormControl, Button, Glyphicon, InputGroup} from 'react-bootstrap';
 import NetFlixApi from '../logicas/NetFlixApi';
 import { browserHistory } from 'react-router';
+import {showFavorites} from '../actions/actionCreator';
 
 export default class HeaderMovies extends Component {
 
@@ -13,6 +14,12 @@ export default class HeaderMovies extends Component {
         }else{
             browserHistory.push('/');
         }
+    }
+
+    showFavorites(event){
+        event.preventDefault();
+        this.props.store.dispatch(showFavorites(this.props.store.getState().favorite));
+        browserHistory.push('/');
     }
 
     render() {
@@ -37,6 +44,9 @@ export default class HeaderMovies extends Component {
                                     <Glyphicon glyph="search"/>
                                 </Button>
                             </InputGroup>
+                            <Button onClick={this.showFavorites.bind(this)}>
+                                <Glyphicon glyph="star" />
+                            </Button>
                         </Form>
 
                     </div>

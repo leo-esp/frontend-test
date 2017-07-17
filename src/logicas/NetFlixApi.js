@@ -1,4 +1,4 @@
-import {listMovies, detailMovie, error} from '../actions/actionCreator';
+import {listMovies, detailMovie, error, favorite} from '../actions/actionCreator';
 import { browserHistory } from 'react-router';
 
 export default class NetFlixApi {
@@ -37,6 +37,12 @@ export default class NetFlixApi {
                     });
                 }
             });
+        }
+    }
+
+    static favorite(movie){
+        return  dispatch => {
+            dispatch(favorite(movie));
         }
     }
 

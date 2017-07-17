@@ -9,7 +9,7 @@ class Collection extends Component {
         return (
             <div className="row-fluid">
                 {
-                    this.props.movies.map(movie => <MovieItem key={movie.show_id} movie={movie}/>)
+                    this.props.movies.map(movie => <MovieItem key={movie.show_id} movie={movie} favorite={this.props.favorite}/>)
                 }
             </div>
         );
@@ -22,7 +22,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        listMovies: url => dispatch(NetFlixApi.listMovies(url))
+        listMovies: url => dispatch(NetFlixApi.listMovies(url)),
+        favorite: movie => dispatch(NetFlixApi.favorite(movie))
     }
 }
 

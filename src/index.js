@@ -9,12 +9,13 @@ import thunkMiddleware from "redux-thunk";
 import { collection } from "./reducers/movies";
 import { detail } from "./reducers/detail";
 import { error } from "./reducers/error";
+import { favorite } from "./reducers/favorites";
 import { Provider } from "react-redux";
 import Erros from "./componentes/Erros";
 import MovieDetails from './componentes/MovieDetails';
 import Collection from './componentes/Collection';
 
-const reducers = combineReducers({ collection, detail, error });
+const reducers = combineReducers({ collection, detail, error, favorite });
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(

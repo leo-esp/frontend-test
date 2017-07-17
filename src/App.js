@@ -3,7 +3,6 @@ import HeaderMovies from './componentes/HeaderMovies';
 
 class App extends Component {
     render() {
-        console.log('App props', this.props);
         return (
             <div id="root">
                 <div className="main">
